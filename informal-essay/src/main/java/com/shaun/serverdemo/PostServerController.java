@@ -12,6 +12,7 @@ import org.springframework.web.util.WebUtils;
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -42,7 +43,7 @@ public class PostServerController {
     @PostMapping("/testMethod1")
     public void testMethod1(HttpServletRequest request, String queryStr) throws IOException {
 
-        System.out.println("############################# 华丽分割线 ###############################");
+        System.out.println("\n############################################################ 华丽分割线 #############################################################\n");
 
         System.out.println("======= 打印请求头 =======");
 
@@ -60,17 +61,25 @@ public class PostServerController {
             System.out.println(parameterName + ":" + request.getParameter(parameterName));
         }
 
-//        System.out.println("======= 打印请求体 （只能打印raw） =======");
+        System.out.println("======= 打印请求体 （只能打印raw） =======");
 
-//        System.out.println(ReadAsChars(request));
+        System.out.println(ReadAsChars(request));
 
 
         System.out.println("======= 打印请求体 （可打印文件流） =======");
 
         if(request instanceof MultipartHttpServletRequest){
             MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-            // 获取文件map集合
+            // 获取文件map集合，若有多个文件相同key的，改map只能映射第一个file
             Map<String, MultipartFile> fileMap = multipartRequest.getFileMap();
+
+            List<MultipartFile> files = multipartRequest.getFiles("files");
+            for (MultipartFile file : files) {
+                System.out.println(file.getOriginalFilename());
+            }
+
+            System.out.println("########## ########## ##########");
+
             // 循环遍历，取出单个文件
             String fileName = null;
             byte[] bytes = null;
@@ -92,10 +101,11 @@ public class PostServerController {
         }
     }
 
-
-
-
-
+    /**
+     * 打印请求体中raw指定格式文本
+     * @param request
+     * @return
+     */
     public static String ReadAsChars(HttpServletRequest request) {
 
         BufferedReader br = null;
