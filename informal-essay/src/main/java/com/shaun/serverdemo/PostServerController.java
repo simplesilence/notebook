@@ -61,12 +61,11 @@ public class PostServerController {
             System.out.println(parameterName + ":" + request.getParameter(parameterName));
         }
 
-        System.out.println("======= 打印请求体 （只能打印raw） =======");
+        System.out.println("======= 打印请求体 （只能打印raw == text/plain、application/json、application/javascript、text/html、application/xml） =======");
 
         System.out.println(ReadAsChars(request));
 
-
-        System.out.println("======= 打印请求体 （可打印文件流） =======");
+        System.out.println("======= 打印请求体 （只能打印文件流 == form-data） =======");
 
         if(request instanceof MultipartHttpServletRequest){
             MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
