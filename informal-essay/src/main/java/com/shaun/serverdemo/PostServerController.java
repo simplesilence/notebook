@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.util.ContentCachingRequestWrapper;
-import org.springframework.web.util.WebUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
@@ -53,7 +51,7 @@ public class PostServerController {
             System.out.println(name + ":" + request.getHeader(name));
         }
 
-        System.out.println("======= 打印参数 =======");
+        System.out.println("======== 打印参数 ========");
 
         Enumeration<String> parameterNames = request.getParameterNames();
         while(parameterNames.hasMoreElements()){
