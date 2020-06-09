@@ -62,16 +62,19 @@ public class PostServerController {
         System.out.println("======= 打印请求体 （只能打印文件流 == form-data） =======");
 
         if(request instanceof MultipartHttpServletRequest){
-            MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-            // 获取文件map集合，若有多个文件相同key的，改map只能映射第一个file
-            Map<String, MultipartFile> fileMap = multipartRequest.getFileMap();
 
+            MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+
+            // 文件集合
             List<MultipartFile> files = multipartRequest.getFiles("files");
             for (MultipartFile file : files) {
                 System.out.println(file.getOriginalFilename());
             }
 
             System.out.println("########## ########## ##########");
+
+            // 获取文件map集合，若有多个文件相同key的，改map只能映射第一个file
+            Map<String, MultipartFile> fileMap = multipartRequest.getFileMap();
 
             // 循环遍历，取出单个文件
             String fileName = null;
