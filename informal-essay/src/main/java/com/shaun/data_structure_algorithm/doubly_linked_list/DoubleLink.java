@@ -85,6 +85,10 @@ public class DoubleLink<T> {
 
     // 将节点插入到第index位置之前
     public void insert(int index, T t) {
+
+        /**
+         * 插入的位置是表头
+         */
         if (index==0) {
             DNode<T> node = new DNode<T>(t, mHead, mHead.next);
             mHead.next.prev = node;
@@ -93,6 +97,9 @@ public class DoubleLink<T> {
             return ;
         }
 
+        /**
+         * 其他位置
+         */
         DNode<T> inode = getNode(index);
         DNode<T> tnode = new DNode<T>(t, inode.prev, inode);
         inode.prev.next = tnode;
