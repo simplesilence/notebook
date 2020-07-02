@@ -8,7 +8,7 @@ public class GreatestCommonDivisor {
 
     public static void main(String[] args) {
 
-        System.out.println(test(15, 10));
+        System.out.println(method(15, 10));
     }
 
     /**
@@ -16,9 +16,9 @@ public class GreatestCommonDivisor {
      * 如果q是0，最大公约数就是p
      * 如果
      */
-    public static int test(int p, int q){
+    public static int method(int p, int q) {
         if (q == 0) return p;
         int r = p % q;
-        return test(q, r);
+        return method(q, r);
     }
 }
