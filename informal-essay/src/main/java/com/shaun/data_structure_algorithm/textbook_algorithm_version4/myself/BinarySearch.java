@@ -1,33 +1,35 @@
 package com.shaun.data_structure_algorithm.textbook_algorithm_version4.myself;
 
 /**
- * 二分查找的递归实现
+ * binary search
  */
 public class BinarySearch {
 
     public static void main(String[] args) {
 
-        int[] a = {1, 4,5,8,11,13,91,97,100};
-        System.out.println(rank(13, a, 0, a.length-1));
+        int[] a = {1,4,5,8,11,13,91,97,100};
+        System.out.println(rank(a, 0, 0, a.length-1));
     }
 
-
-    /**
-     * 二分查找
-     * @param key 需要查找的数
-     * @param a 在数组中查找
-     * @param lo 左侧指针游标
-     * @param hi 右侧指针游标
-     * @return
+    /*
+     * 分支查找思想
+     * 把带有下标的的数组排序
+     * 如果lo > hi说明没找到
+     * 找到中间下标，根据数组长度找到中间的下标，(hi-lo)/2-lo
+     * 判断中间下标的值是否大于，小于，等于给定的值
+     *      大于：说明在数组的左侧，lo不变，hi=mid-1
+     *      小于：说明在数组的右侧，lo=mid+1，hi不变
+     *      等于：mid下标所对应的值就是当前给定的值
      */
-    public static int rank(int key, int[] a, int lo, int hi) {
+    public static int rank(int[] arr, int key, int low, int high){
 
-        // 如果lo > hi，没找到return -1
-        if(lo > hi) return -1;
-        // 找出二分位
-        int mid = (hi - lo) / 2 + lo;
-        if(a[mid] > key) return rank(key, a, lo, mid - 1);
-        else if(a[mid] < key) return rank(key, a, mid + 1, hi);
+        if(low > high) return -1;
+
+        int mid = (high-low) / 2 + low;
+
+        if(arr[mid] > key) return rank(arr, key, low, mid-1);
+        else if(arr[mid] < key) return rank(arr, key, mid+1, high);
         else return mid;
+
     }
 }
