@@ -11,8 +11,8 @@ public class BinarySearch {
         System.out.println(rank(a, 0, 0, a.length-1));
     }
 
-    /*
-     * 分支查找思想
+    /**
+     * 二分查找思想
      * 把带有下标的的数组排序
      * 如果lo > hi说明没找到
      * 找到中间下标，根据数组长度找到中间的下标，(hi-lo)/2-lo
