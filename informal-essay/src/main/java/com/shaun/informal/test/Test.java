@@ -1,14 +1,17 @@
 package com.shaun.informal.test;
 
-import java.io.UnsupportedEncodingException;
-import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Base64;
+import java.util.Date;
+import java.util.List;
 
 public class Test {
 
     final static Base64.Decoder decoder = Base64.getDecoder();
 
-    public static void main(String[] args) throws UnsupportedEncodingException {
+    public static void main(String[] args) throws Exception {
 
 //        System.out.println(new String[0].getClass());
 
@@ -33,15 +36,53 @@ public class Test {
 //        System.out.println(bigDecimal.compareTo(BigDecimal.ZERO)==0 );
 
 
-        String str = "abcabcbb";
-        for (int i = 0; i < str.length(); i++) {
+//        String str = "abcabcbb";
+//        for (int i = 0; i < str.length(); i++) {
 //            String subStr = str.substring(i, )
-        }
+//        }
 
+//        try{
+//            SimpleDateFormat sdformat = new SimpleDateFormat("yyyy-MM-dd");
+//            Date d1 = sdformat.parse("2020-07-30");
+//            Date d2 = new Date();
+//            System.out.println("The date 1 is: " + sdformat.format(d1));
+//            System.out.println("The date 2 is: " + sdformat.format(d2));
+//            if(d1.compareTo(d2) > 0) {
+//                System.out.println("Date 1 occurs after Date 2");
+//            } else if(d1.compareTo(d2) < 0) {
+//                System.out.println("Date 1 occurs before Date 2");
+//            } else if(d1.compareTo(d2) == 0) {
+//                System.out.println("Both dates are equal");
+//            }
+//        }catch (Exception ex){
+//
+//        }
+
+//        int a = Integer.parseInt("2014-02-14".substring(0,4)) - Integer.parseInt("3019-02-14".substring(0,4));
+//        System.out.println(a==-1005);
+
+//        System.out.println(new Date().after(new SimpleDateFormat("yyyy-MM-dd").parse("2020-08-22")));
+//        System.out.println(new Date().after(new SimpleDateFormat("yyyy-MM-dd").parse("2020-08-22T16:00:00.000Z")));
+//        System.out.println(new SimpleDateFormat("yyyy-MM-dd").parse(new SimpleDateFormat("yyyy-MM-dd").format(new Date())).after(new SimpleDateFormat("yyyy-MM-dd").parse("2020-08-21")));
+
+//
+//        System.out.println((int)(new SimpleDateFormat("yyyy-MM-dd").parse("2020-08-14").getTime() - new Date().getTime()) / (1000*3600*24));
+
+
+//        Child child = new Child();
+//        child.setFirstName("ssss");
+
+//        System.out.println(LocalDate.parse("2010-08-23T00:00:00.000Z", DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+
+        int age = 20, years = 10;
+        if((age < 16 && years != 5) || (age > 15 && age < 26 && years != 10) || (age > 25 && age < 46 && years != 20) || (age > 45 && years != -1)){
+            System.out.println("cc");
+        }
     }
 
 
-    public static void test(String str){
+    public static void main(String str){
 
     }
 }
+
