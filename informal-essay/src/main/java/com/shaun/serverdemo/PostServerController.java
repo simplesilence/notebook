@@ -1,5 +1,6 @@
 package com.shaun.serverdemo;
 
+import com.shaun.verify.SignUtil;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +26,7 @@ import java.util.Map;
 public class PostServerController {
 
 
-    /** TODO post 对query string的处理和 get 请求一样，不讲 */
+    /** TODO post 对query string的处理和 get 请求一样 */
 
 
 
@@ -41,6 +42,9 @@ public class PostServerController {
     @PostMapping("/testMethod1")
     public void testMethod1(HttpServletRequest request, String queryStr) throws IOException {
 
+        // 第三方开发平台签名测试
+//        SignUtil.sign(request, "c7db5c1a-b4e1-4513-a0d1-2325b38f98d4");
+
         System.out.println("\n############################################################ 华丽分割线 #############################################################\n");
 
         System.out.println("======= 打印请求头 =======");
@@ -53,10 +57,17 @@ public class PostServerController {
 
         System.out.println("======== 打印参数 ========");
 
+        // 第一种方式
         Enumeration<String> parameterNames = request.getParameterNames();
         while(parameterNames.hasMoreElements()){
             String parameterName = parameterNames.nextElement();
             System.out.println(parameterName + ":" + request.getParameter(parameterName));
+        }
+
+        // 第二种方式，（推荐）
+        Map<String, String[]> parameterMap = request.getParameterMap();
+        for (Map.Entry<String, String[]> stringEntry : parameterMap.entrySet()) {
+            System.out.println(stringEntry.getKey()+":"+stringEntry.getValue()[0]);
         }
 
         System.out.println("======= 打印请求体 （只能打印文件流 == form-data） =======");

@@ -1,11 +1,10 @@
 package com.shaun.informal.test;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Base64;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class Test {
 
@@ -74,15 +73,34 @@ public class Test {
 
 //        System.out.println(LocalDate.parse("2010-08-23T00:00:00.000Z", DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 
-        int age = 20, years = 10;
-        if((age < 16 && years != 5) || (age > 15 && age < 26 && years != 10) || (age > 25 && age < 46 && years != 20) || (age > 45 && years != -1)){
-            System.out.println("cc");
-        }
+//        int age = 20, years = 10;
+//        if((age < 16 && years != 5) || (age > 15 && age < 26 && years != 10) || (age > 25 && age < 46 && years != 20) || (age > 45 && years != -1)){
+//            System.out.println("cc");
+//        }
+//
+//        System.out.println("测试");
+
+//        BigDecimal bigDecimal = new BigDecimal(0);
+//        bigDecimal = bigDecimal.add(new BigDecimal(2.0));
+//        System.out.println(bigDecimal.toString());
+
+
+        System.out.println(getAge("20200925", "20100925"));
     }
 
 
-    public static void main(String str){
+    private static Integer getAge(String now, String born){
 
+        //计算年龄差
+        Integer ageBit = Integer.parseInt(now) - Integer.parseInt(born);
+        Integer personAge;
+        if (ageBit.toString().length() > 4) {
+            personAge = Integer.parseInt(ageBit.toString().substring(0, ageBit.toString().length() - 4));
+        }else {
+            personAge = 0;
+        }
+
+        return personAge;
     }
 }
 
