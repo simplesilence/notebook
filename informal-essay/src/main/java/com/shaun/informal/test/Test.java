@@ -85,7 +85,10 @@ public class Test {
 //        System.out.println(bigDecimal.toString());
 
 
-        System.out.println(getAge("20200925", "20100925"));
+//        System.out.println(getAge("20200925", "20100925"));
+
+
+        System.out.println(getNumber(new BigDecimal("501")));
     }
 
 
@@ -101,6 +104,28 @@ public class Test {
         }
 
         return personAge;
+    }
+
+    /**
+     * BigDecimal 有小数的保留两位，不做四舍五入
+     * @param number
+     * @return
+     */
+    private static BigDecimal getNumber(BigDecimal number){
+        if (!"".equals(number) && number != null){
+            if (new BigDecimal(number.intValue()).compareTo(number)==0){
+                //整数
+                return number;
+            }else {
+                //小数
+                return round(number.toString(), 2);
+            }
+        }
+        return new BigDecimal(0);
+    }
+
+    private static BigDecimal round(String value, int scale) {
+        return new BigDecimal(value).setScale(scale, BigDecimal.ROUND_DOWN);
     }
 }
 

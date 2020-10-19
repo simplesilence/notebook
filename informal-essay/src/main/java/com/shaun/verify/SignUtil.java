@@ -38,7 +38,7 @@ public class SignUtil {
             }
 
             // 获取请求体参数
-            String jsonBody = readAsChars(request);
+            String jsonBody = readAsChars(request).trim();
 
             // jsonBody是json字符串
             if(null != jsonBody && !"".equals(jsonBody) && jsonBody.startsWith("{")){
