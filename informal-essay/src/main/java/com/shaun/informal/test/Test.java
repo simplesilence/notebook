@@ -1,5 +1,7 @@
 package com.shaun.informal.test;
 
+import com.alibaba.fastjson.JSON;
+
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -88,7 +90,11 @@ public class Test {
 //        System.out.println(getAge("20200925", "20100925"));
 
 
-        System.out.println(getNumber(new BigDecimal("501")));
+//        System.out.println(getNumber(new BigDecimal("501")));
+
+        Person s = JSON.parseObject("{\"firstName\":\"{\"key\":\"val\"}\"}", Person.class);
+//        String s = JSON.parseObject("rest", String.class);
+        System.out.println(s);
     }
 
 
