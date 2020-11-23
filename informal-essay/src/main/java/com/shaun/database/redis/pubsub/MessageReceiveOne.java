@@ -1,4 +1,4 @@
-package com.shaun.database.redis;
+package com.shaun.database.redis.pubsub;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -7,7 +7,7 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MessageReceiveTwo {
+public class MessageReceiveOne {
 
     public void getMessage(String object){
         //序列化对象（特别注意：发布的时候需要设置序列化；订阅方也需要设置序列化）
@@ -18,6 +18,6 @@ public class MessageReceiveTwo {
         seria.setObjectMapper(objectMapper);
 
         User user = (User)seria.deserialize(object.getBytes());
-        System.out.println("消息客户端2号："+object);
+        System.out.println("消息客户端1号："+object);
     }
 }

@@ -1,4 +1,4 @@
-package com.shaun.database.redis;
+package com.shaun.database.redis.pubsub;
 
 public class User {
 

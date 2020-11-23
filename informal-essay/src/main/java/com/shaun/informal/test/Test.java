@@ -12,6 +12,8 @@ public class Test {
 
     final static Base64.Decoder decoder = Base64.getDecoder();
 
+    Integer integerDefault;
+
     public static void main(String[] args) throws Exception {
 
 //        System.out.println(new String[0].getClass());
@@ -92,9 +94,12 @@ public class Test {
 
 //        System.out.println(getNumber(new BigDecimal("501")));
 
-        Person s = JSON.parseObject("{\"firstName\":\"{\"key\":\"val\"}\"}", Person.class);
+//        Person s = JSON.parseObject("{\"firstName\":\"{\"key\":\"val\"}\"}", Person.class);
 //        String s = JSON.parseObject("rest", String.class);
-        System.out.println(s);
+//        System.out.println(s);
+
+        Test test = new Test();
+        System.out.println(test.integerDefault);
     }
 
 

@@ -11,9 +11,16 @@ public class LeetCode3 {
         System.out.println(solution("III"));
     }
 
-
+    /**
+     * 解题思路
+     * @param str
+     * @return
+     */
     private static int solution(String str){
-
+        /*
+         * 找出规律
+         *
+         */
         int sum = 0;
         int preNum = getValue(str.charAt(0));
         for (int i=1; i<str.length(); i++){
