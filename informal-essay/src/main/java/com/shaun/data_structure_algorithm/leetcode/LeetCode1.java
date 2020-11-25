@@ -38,13 +38,17 @@ public class LeetCode1 {
 
     /**
      * hash方法
+     * 思路：
+     *      1、把目标值减去当前值，得到需要的值，看是否在hash表中
+     *          不在，将当前下标的值放入hash表
+     *          在，直接返回当前hash表中的值和当前值
      * @param nums
      * @param target
      * @return
      */
     public static int[] sumOfTwoNumbers2(int[] nums, int target){
 
-        // 接触hash表
+        // 借助hash表
         Map<Integer, Integer> hashMap = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
 
