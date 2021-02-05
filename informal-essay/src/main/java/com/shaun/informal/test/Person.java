@@ -1,23 +1,25 @@
 package com.shaun.informal.test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Person {
 
-    private String firstName;
+    private TestObject firstName;
     private String lastName;
 
     Person() {}
 
-    Person(String firstName, String lastName) {
+    Person(TestObject firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public String getFirstName() {
+    public TestObject getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        System.out.println(this);
+    public void setFirstName(TestObject firstName) {
         this.firstName = firstName;
     }
 

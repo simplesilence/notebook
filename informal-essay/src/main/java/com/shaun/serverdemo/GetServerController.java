@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -22,7 +23,9 @@ public class GetServerController {
      * @param queryInt
      */
     @GetMapping("/testMethod1")
-    public void testMethod1(String queryString, Integer queryInt){
+    public void testMethod1(String queryString, Integer queryInt, HttpServletRequest request){
+
+        System.out.println(request.getLocalAddr());
 
         System.out.println(queryString);
         System.out.println(queryInt);
