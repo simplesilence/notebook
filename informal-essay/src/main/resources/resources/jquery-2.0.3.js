@@ -1,23 +1,5 @@
-/*!
- * jQuery JavaScript Library v2.0.3
- * http://jquery.com/
- *
- * Includes Sizzle.js
- * http://sizzlejs.com/
- *
- * Copyright 2005, 2013 jQuery Foundation, Inc. and other contributors
- * Released under the MIT license
- * http://jquery.org/license
- *
- * Date: 2013-07-03T13:30Z
- */
 (function( window, undefined ) {
 
-// Can't do this because several apps including ASP.NET trace
-// the stack via arguments.caller.callee and Firefox dies if
-// you try to trace through "use strict" call chains. (#13335)
-// Support: Firefox 18+
-//"use strict";
 var
 	// A central reference to the root jQuery(document)
 	rootjQuery,
@@ -58,6 +40,7 @@ var
 	core_trim = core_version.trim,
 
 	// Define a local copy of jQuery
+	// 定义jQuery函数对象，返回一个jQuery对象
 	jQuery = function( selector, context ) {
 		// The jQuery object is actually just the init constructor 'enhanced'
 		return new jQuery.fn.init( selector, context, rootjQuery );
@@ -93,6 +76,7 @@ var
 		jQuery.ready();
 	};
 
+// 重写jQuery函数对象原型
 jQuery.fn = jQuery.prototype = {
 	// The current version of jQuery being used
 	jquery: core_version,
@@ -279,6 +263,7 @@ jQuery.fn = jQuery.prototype = {
 	splice: [].splice
 };
 
+// jQuery函数对象上init函数对象原型
 // Give the init function the jQuery prototype for later instantiation
 jQuery.fn.init.prototype = jQuery.fn;
 
